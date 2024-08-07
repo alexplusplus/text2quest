@@ -10,9 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "firebase": "^10.12.5",
     "flowbite": "^2.4.1",
     "flowbite-vue": "^0.1.5",
     "nuxt": "^3.12.4",
+    "nuxt-gtag": "^2.1.0",
     "openai": "^4.54.0",
     "vue": "latest"
   },
