@@ -1,0 +1,25 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "flowbite": "^2.4.1",
+    "flowbite-vue": "^0.1.5",
+    "nuxt": "^3.12.4",
+    "openai": "^4.54.0",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "@nuxt/icon": "^1.4.4",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0"
+  }
+}
