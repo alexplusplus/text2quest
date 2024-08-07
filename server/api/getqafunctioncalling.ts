@@ -46,35 +46,5 @@ export default defineEventHandler(async (event) => {
 
     tool_choice: {"type": "function", "function": {"name": "questions_and_answers"}},
     });
-    // functions: [
-    //     {
-    //       name: "questions_and_answers",
-    //       description: "Formulate three questions about the given text and provide answers to them",
-    //       parameters: {
-    //           type: "object",
-    //           properties: {
-    //               questions_and_answers: {
-    //               type: "array",
-    //               items: {
-    //                   type: "object",
-    //                       properties: {
-    //                           question: { type: "string" },
-    //                           answer: { type: "string" }
-    //                         },
-    //           required: [ "question", "answer" ]
-    //                 }
-    //                 }
-    //             },
-    //       required: [ "questions_and_answers"]
-    //       }
-    //     }
-    //   ],
-      
-    //   function_call: {name: "questions_and_answers"}
-    
-
-    // return JSON.parse(response.choices[0].message.content||"{}");
-    // return JSON.parse(response.choices[0].message.function_call.arguments||"{}");
-    // return JSON.parse(response.choices[0].message.function_call.arguments||"{}");
     return JSON.parse(response.choices[0].message.tool_calls?.[0].function.arguments || "{}");
   })
