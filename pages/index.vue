@@ -60,29 +60,21 @@ const qadata_json = ref('');
 const requestInProgress = ref(false);
 const displayQA = ref(false);
 
-const isTextEntered = computed(() => {
-  return InputText.value.length > 400 && InputText.value.length < 6000;
-});
-const selected_api_method = ref('chat')
+const isTextEntered = computed(() => {  return InputText.value.length > 400 && InputText.value.length < 6000; });
+
+//Params that are used in dropdown fwb-select 
+const selected_api_method = ref('getqabasic')
 const api_methods = [
-  { value: 'chat', name: 'Chat' },
-  { value: 'func', name: 'Function' },
-  { value: 'asst', name: 'Assistant' },
+  { value: 'getqabasic', name: 'Chat' },
+  { value: 'getqafunctioncalling', name: 'Function' },
+  { value: 'getqaassistant', name: 'Assistant' },
 ];
 
 async function GetQA() {
     requestInProgress.value = true;
     displayQA.value = false;
-    if (selected_api_method.value === 'chat') {
-        const { data: MainResponse } = await useFetch('/api/getqabasic').post({InputText: InputText.value}).json();
-        qadata_json.value = await MainResponse.value;
-    } else if (selected_api_method.value === 'func') {
-        const { data: MainResponse } = await useFetch('/api/getqafunctioncalling').post({InputText: InputText.value}).json();
-        qadata_json.value = await MainResponse.value;
-    } else if (selected_api_method.value === 'asst') {
-        const { data: MainResponse } = await useFetch('/api/getqaassistant').post({InputText: InputText.value}).json();
-        qadata_json.value = await MainResponse.value;
-    }
+    const { data: MainResponse } = await useFetch('/api/'+selected_api_method.value).post({InputText: InputText.value}).json();
+    qadata_json.value = await MainResponse.value;
 
     requestInProgress.value = false;
     displayQA.value = true;
