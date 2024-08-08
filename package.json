@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@vite-pwa/nuxt": "^0.9.1",
     "firebase": "^10.12.5",
     "flowbite": "^2.4.1",
     "flowbite-vue": "^0.1.5",
