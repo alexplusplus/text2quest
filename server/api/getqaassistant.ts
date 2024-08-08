@@ -2,7 +2,8 @@ import OpenAI from 'openai';
 import { sleep } from 'openai/core';
 
 export default defineEventHandler(async (event) => {
-    const body = await readBody(event)
+    const body = await readBody(event);
+    if (body.InputText.length > 6000) { return {statusCode: 400};};
     const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 
     const run = await openai.beta.threads.createAndRun({
